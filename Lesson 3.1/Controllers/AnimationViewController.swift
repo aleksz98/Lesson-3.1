@@ -20,12 +20,16 @@ final class AnimationViewController: UIViewController {
     
     // MARK: - Private properties
     private let animations = Animation.getAnimation()
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let animation = getRandomAnimation()
+        updateLabels(for: animation)
+    }
+    
     // MARK: - Private IB Actions
     @IBAction func startAnimation(_ sender: SpringButton) {
-        guard let animation = animations.randomElement() else {
-            return
-        }
+        let animation = getRandomAnimation()
         springView.animation = animation.presetAnimation
         springView.curve = animation.curveAnimation
         springView.force = CGFloat(animation.forceAnimation)
@@ -33,11 +37,31 @@ final class AnimationViewController: UIViewController {
         springView.delay = CGFloat(animation.delayAnimation)
         springView.animate()
         
-        presetLabel.text = "preset: " + animation.presetAnimation
-        curveLabel.text = "curve: " + animation.curveAnimation
-        forceLabel.text = "force: " + String(format: "%.2f", animation.forceAnimation)
-        durationLabel.text = "duration: " + String(format: "%.2f", animation.durationAnimation)
-        delayLabel.text = "delay: " + String(format: "%.2f", animation.delayAnimation)
+        updateLabels(for: animation)
+    }
+    
+    private func getRandomAnimation() -> Animation {
+        guard let animation = animations.randomElement() else {
+            fatalError("No Animation")
+        }
+        return animation
+    }
+    
+    private func updateLabels(for animation: Animation) {
+        presetLabel.text = getAnimationLabelText(
+            for: "preset", animation.presetAnimation)
+        curveLabel.text = getAnimationLabelText(
+            for: "curve", animation.curveAnimation)
+        forceLabel.text = getAnimationLabelText(
+            for: "force", String(format: "%.2f", animation.forceAnimation))
+        durationLabel.text = getAnimationLabelText(
+            for: "duration", String(format: "%.2f", animation.durationAnimation))
+        delayLabel.text = getAnimationLabelText(
+            for: "delay", String(format: "%.2f", animation.delayAnimation))
+    }
+    
+    private func getAnimationLabelText(for label: String, _ value: String) -> String {
+        return "\(label): \(value)"
     }
 }
 
