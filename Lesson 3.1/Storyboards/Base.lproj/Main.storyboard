@@ -92,8 +92,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonLabel" destination="ZP2-3U-sXK" id="GId-lP-3o4"/>
                         <outlet property="curveLabel" destination="bap-FO-j1u" id="Zzl-tm-zU1"/>
-                        <outlet property="delayLabel" destination="lOV-rh-lfI" id="HpM-7Y-6e8"/>
+                        <outlet property="delayLabel" destination="lOV-rh-lfI" id="oCz-40-Kn3"/>
                         <outlet property="durationLabel" destination="CXr-uU-e29" id="WKi-ge-JN9"/>
                         <outlet property="forceLabel" destination="d6G-Ut-Ghf" id="NgR-7b-FeQ"/>
                         <outlet property="presetLabel" destination="hG2-Kd-gSS" id="9m1-gh-RvP"/>

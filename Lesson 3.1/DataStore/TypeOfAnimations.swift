@@ -5,7 +5,7 @@
 //  Created by Иван on 03.05.2023.
 //
 
-let animations = [
+let animationsData = [
     "pop",
     "slideLeft",
     "slideRight",
@@ -35,7 +35,7 @@ let animations = [
     "swing"
 ]
 
-let curves = [
+let curvesData = [
     "easeIn",
     "easeOut",
     "easeInOut",

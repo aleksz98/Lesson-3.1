@@ -9,22 +9,20 @@ import UIKit
 import SpringAnimation
 
 final class AnimationViewController: UIViewController {
-
+    // MARK: - private IBOutlets
     @IBOutlet private weak var springView: SpringView!
     @IBOutlet private weak var presetLabel: UILabel!
     @IBOutlet private weak var curveLabel: UILabel!
     @IBOutlet private weak var forceLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var delayLabel: UILabel!
-
-    let animations = Animation.getAnimation()
+    @IBOutlet private weak var buttonLabel: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-
-    @IBAction func startAnimation(_ sender: SpringButton) {
+    // MARK: - Private properties
+    private let animations = Animation.getAnimation()
+    
+    // MARK: - private IB Actions
+    @IBAction private func startAnimation(_ sender: SpringButton) {
         guard let animation = animations.randomElement() else {
             return
         }
@@ -40,6 +38,7 @@ final class AnimationViewController: UIViewController {
         forceLabel.text = String(format: "%.2f", animation.forceAnimation)
         durationLabel.text = String(format: "%.2f", animation.durationAnimation)
         delayLabel.text = String(format: "%.2f", animation.delayAnimation)
+        
     }
 }
 
