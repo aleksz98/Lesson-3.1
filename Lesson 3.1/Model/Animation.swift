@@ -16,12 +16,12 @@ struct Animation {
     
     static func getAnimation() -> [Animation] {
         var animation = [Animation]()
-        for _ in 1...animationsData.count {
+        for _ in 0...animationsData.count {
             animation.append(Animation(
                 presetAnimation: animationsData.randomElement() ?? "none",
                 curveAnimation: curvesData.randomElement() ?? "none",
                 forceAnimation: CGFloat(Float.random(in: 0.0...3.0)),
-                durationAnimation: CGFloat(Float.random(in: 0.0...3.0)),
+                durationAnimation: CGFloat(Float.random(in: 0.0...2.0)),
                 delayAnimation: CGFloat(Float.random(in: 0.0...0.5))
             ))
         }
