@@ -40,6 +40,7 @@ final class AnimationViewController: UIViewController {
         updateLabels(for: animation)
     }
     
+    // MARK: - Private methods
     private func getRandomAnimation() -> Animation {
         guard let animation = animations.randomElement() else {
             fatalError("No Animation")
